@@ -1,7 +1,7 @@
-// ============================================================
+
 // MIDDLEWARE — Request Logger
 // Registra cada petición entrante: método, ruta y tiempo de respuesta.
-// ============================================================
+
 import { Request, Response, NextFunction } from "express";
 
 export function requestLogger(

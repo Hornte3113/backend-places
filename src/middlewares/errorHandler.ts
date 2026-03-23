@@ -1,9 +1,8 @@
-// ============================================================
+
 // MIDDLEWARE — Manejador Global de Errores
 // Captura cualquier error no controlado y devuelve una
-// respuesta JSON limpia. El frontend NUNCA debe recibir un
-// stack trace en producción.
-// ============================================================
+// respuesta JSON limpia
+
 import { Request, Response, NextFunction } from "express";
 import { env } from "../config/env";
 
@@ -15,7 +14,7 @@ export function errorHandler(
   err: AppError,
   req: Request,
   res: Response,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+ 
   _next: NextFunction
 ): void {
   const statusCode = err.statusCode ?? 500;

@@ -1,9 +1,8 @@
-// ============================================================
+
 // SERVICE — Places Service
 // Toda la lógica de comunicación con Google Places API (New)
 // vive aquí. El controller NO sabe cómo funciona Google;
 // solo llama a este servicio y espera el resultado.
-// ============================================================
 import { env } from "../config/env";
 import {
   GooglePlace,

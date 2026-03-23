@@ -1,7 +1,4 @@
-// ============================================================
-// SERVER — Punto de entrada de la aplicación
-// Solo levanta el servidor HTTP. Toda la config está en app.ts.
-// ============================================================
+
 import app from "./app";
 import { env } from "./config/env";
 

@@ -1,6 +1,5 @@
-// ============================================================
+
 // TIPOS Y CONTRATOS DE DATOS — Google Places API (New)
-// ============================================================
 
 /** Parámetros que acepta nuestro endpoint de búsqueda */
 export interface SearchPlacesParams {
