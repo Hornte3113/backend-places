@@ -1,7 +1,7 @@
 
-// TIPOS Y CONTRATOS DE DATOS — Google Places API (New)
+// TIPOS Y CONTRATOS DE DATOS 
 
-/** Parámetros que acepta nuestro endpoint de búsqueda */
+/** Parámetros de lo que acepta el endpoint de búsqueda */
 export interface SearchPlacesParams {
   textQuery: string;
   maxResultCount?: number;
@@ -13,7 +13,7 @@ export interface GetPlaceParams {
   placeId: string;
 }
 
-/** Estructura de un lugar que devuelve Google */
+/** Estructura de un lugar que devuelve google */
 export interface GooglePlace {
   id: string;
   displayName: {

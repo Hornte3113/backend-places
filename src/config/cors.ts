@@ -1,14 +1,13 @@
-// ============================================================
-// CONFIGURACIÓN DE CORS
-// Solo el frontend autorizado puede consumir este backend.
-// Esto protege contra peticiones desde orígenes no permitidos.
-// ============================================================
+//aqui es donde se configur el CORS
+// Solo mi front  autorizado puede consumir este backend
+// Esto protege contra peticiones desde orígenes no permitidos
+
 import { CorsOptions } from "cors";
 import { env } from "./env";
 
 export const corsOptions: CorsOptions = {
   origin: (origin, callback) => {
-    // Permitir peticiones sin origin (Postman, curl, server-to-server)
+    
     if (!origin) return callback(null, true);
 
     const allowedOrigins = [

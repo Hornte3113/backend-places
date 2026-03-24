@@ -1,8 +1,6 @@
-// ============================================================
-// CONFIGURACIÓN DE VARIABLES DE ENTORNO
 // Centraliza y valida todas las env vars en un solo lugar.
-// El resto de la app importa desde aquí, NUNCA desde process.env
-// ============================================================
+// esto es porque el resto de la app impota desde aqui
+
 import dotenv from "dotenv";
 
 dotenv.config();

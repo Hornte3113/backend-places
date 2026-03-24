@@ -1,8 +1,5 @@
-
-// SERVICE — Places Service
-// Toda la lógica de comunicación con Google Places API (New)
-// vive aquí. El controller NO sabe cómo funciona Google;
-// solo llama a este servicio y espera el resultado.
+// aqui esta toda la lógica de comunicación con  la api de Goolge
+//llama a este servicio y espera el resultado.
 import { env } from "../config/env";
 import {
   GooglePlace,
@@ -13,7 +10,7 @@ import {
 
 const GOOGLE_PLACES_BASE_URL = "https://places.googleapis.com/v1";
 
-/** Campos que solicitamos a Google (FieldMask) */
+// Campos que solicitamos a Google 
 const SEARCH_FIELD_MASK = [
   "places.id",
   "places.displayName",
@@ -46,9 +43,9 @@ const DETAIL_FIELD_MASK = [
   "websiteUri",
 ].join(",");
 
-/**
- * Busca lugares por texto usando Google Places Text Search (New).
- */
+
+//Busca lugares por texto usando Google Places Text Search
+
 export async function searchPlaces(
   params: SearchPlacesParams
 ): Promise<GooglePlace[]> {
@@ -75,9 +72,7 @@ export async function searchPlaces(
   return data.places ?? [];
 }
 
-/**
- * Obtiene los detalles de un lugar por su ID.
- */
+//Obtiene los detalles de un lugar por su ID
 export async function getPlaceById(
   params: GetPlaceParams
 ): Promise<GooglePlace> {
@@ -104,12 +99,7 @@ export async function getPlaceById(
   return (await response.json()) as GooglePlace;
 }
 
-/**
- * Obtiene la imagen de una foto de Google Places y la retorna
- * como buffer junto con su Content-Type.
- * @param photoName  El campo `name` que viene en photos[] (ej: "places/ChIJ.../photos/AXCi2Q...")
- * @param maxWidthPx Ancho máximo de la imagen (1–4800). Default: 800
- */
+// Obtiene la imagen de una foto de Google Places y la retorna como buffer
 export async function getPlacePhoto(
   photoName: string,
   maxWidthPx = 800
@@ -127,7 +117,7 @@ export async function getPlacePhoto(
     );
   }
 
-  // La API devuelve un JSON con photoUri cuando skipHttpRedirect=true
+  // La API devuelve un JSON con photoUri 
   const data = (await response.json()) as { photoUri: string };
 
   if (!data.photoUri) {

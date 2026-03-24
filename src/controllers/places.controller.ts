@@ -1,16 +1,13 @@
-// ============================================================
-// CONTROLLER — Places Controller
-// Recibe la petición HTTP, valida los parámetros de entrada
-// y delega la lógica al Service. NO conoce a Google Places;
-// solo sabe que existe un service que devuelve lugares.
-// ============================================================
+//recibe la petición HTTP, valida los parámetros de entrada
+// y deste solo le da la logica al service
+
 import { Request, Response, NextFunction } from "express";
 import { searchPlaces, getPlaceById, getPlacePhoto } from "../services/places.service";
 
-/**
- * POST /api/places/search
- * Body: { textQuery: string, maxResultCount?: number }
- */
+
+// POST /api/places/search
+
+ 
 export async function searchPlacesController(
   req: Request,
   res: Response,
@@ -44,17 +41,16 @@ export async function searchPlacesController(
   }
 }
 
-/**
- * GET /api/places/photo/*photoName?maxWidth=800
- * Hace de proxy para devolver la imagen binaria al cliente.
- */
+
+//GET /api/places/photo/*photoName?maxWidth=800
+
 export async function getPlacePhotoController(
   req: Request,
   res: Response,
   next: NextFunction
 ): Promise<void> {
   try {
-    // photoName viene como wildcard: "places/ChIJ.../photos/AXCi2Q..."
+    
     const photoName = (req.params as Record<string, string>)[0];
     const maxWidth = parseInt((req.query.maxWidth as string) ?? "800", 10);
 
@@ -77,16 +73,16 @@ export async function getPlacePhotoController(
     const { buffer, contentType } = await getPlacePhoto(photoName, maxWidth);
 
     res.setHeader("Content-Type", contentType);
-    res.setHeader("Cache-Control", "public, max-age=86400"); // cache 24h
+    res.setHeader("Cache-Control", "public, max-age=86400"); 
     res.status(200).send(buffer);
   } catch (error) {
     next(error);
   }
 }
 
-/**
- * GET /api/places/:placeId
- */
+
+ //GET /api/places/:placeId
+
 export async function getPlaceController(
   req: Request,
   res: Response,

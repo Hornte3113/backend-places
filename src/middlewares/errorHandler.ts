@@ -1,5 +1,3 @@
-
-// MIDDLEWARE — Manejador Global de Errores
 // Captura cualquier error no controlado y devuelve una
 // respuesta JSON limpia
 
